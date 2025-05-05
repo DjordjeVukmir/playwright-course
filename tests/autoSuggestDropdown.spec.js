@@ -5,9 +5,9 @@ test('Handle auto suggest dropdown', async ({ page }) => {
     await page.goto('https://www.redbus.in/')
     await page.locator('//*[@id="src"]').click()
     await page.locator('//*[@id="src"]').fill('Delhi')
-    await page.waitForSelector('//li[contains(@class,"sc-iwsKbI")]/div/text[1]')
+    await page.waitForSelector('//text[@class="placeHolderMainText"]')
 
-    const fromCityOptions = await page.$$('//li[contains(@class,"sc-iwsKbI")]/div/text[1]')
+    const fromCityOptions = await page.$$('//text[@class="placeHolderMainText"]')
 
     for (let option of fromCityOptions) {
         const value = await option.textContent();
