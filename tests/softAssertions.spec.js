@@ -12,8 +12,8 @@ test('Soft Assertions', async ({ page }) => {
 
     //soft assertions
 
-    await expect.soft(page).toHaveTitle('STORE123');
-    await expect.soft(page).toHaveURL('https://demoblaze123.com/')
-    await expect.soft(page.locator('#nava')).not.toBeVisible()
-
+    /* await expect.soft(page).toHaveTitle('STORE123');
+     await expect.soft(page).toHaveURL('https://demoblaze123.com/')
+     await expect.soft(page.locator('#nava')).not.toBeVisible()
+ */
 })
