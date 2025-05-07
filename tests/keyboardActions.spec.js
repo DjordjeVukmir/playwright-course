@@ -17,7 +17,7 @@ test('Handle keyboard actions', async ({ page }) => {
     await page.keyboard.up('Tab')
 
     //CTRL + V
-    const paste = await page.keyboard.press('Control+V')
+    await page.keyboard.press('Control+V')
 
 
     await page.waitForTimeout(5000)
