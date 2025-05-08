@@ -12,7 +12,7 @@ test('Single file', async ({ page }) => {
 
 })
 
-test.only('Multiple files', async ({ page }) => {
+test('Multiple files', async ({ page }) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/')
     const multipleFileUpload = await page.locator('#multipleFilesInput');
