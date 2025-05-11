@@ -1,0 +1,71 @@
+# Test info
+
+- Name: PUT request
+- Location: C:\Users\Nera the dog\Desktop\Playwright\tests\api.spec.js:33:5
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 401
+    at C:\Users\Nera the dog\Desktop\Playwright\tests\api.spec.js:46:34
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test'
+   2 |
+   3 | var userId;
+   4 |
+   5 | test('GET request', async ({ request }) => {
+   6 |     const getresponse = await request.get('https://reqres.in/api/users?page=2')
+   7 |     console.log(await getresponse.json())
+   8 |     await expect(getresponse.status()).toBe(200)
+   9 |
+  10 | })
+  11 |
+  12 | test('POST request', async ({ request }) => {
+  13 |
+  14 |     const postrequest = await request.post('https://reqres.in/api/users',
+  15 |         {
+  16 |             data: {
+  17 |                 "name": "morpheus",
+  18 |                 "job": "leader"
+  19 |             },
+  20 |             headers: {
+  21 |                 "x-api-key": "reqres-free-v1",
+  22 |                 "Accept": "application/json"
+  23 |             }
+  24 |         }
+  25 |
+  26 |     )
+  27 |
+  28 |     const postData = await postrequest.json()
+  29 |     userId = postData.id;
+  30 |     console.log("User ID is: ", userId)
+  31 |
+  32 | })
+  33 | test('PUT request', async ({ request }) => {
+  34 |     const putResponse = await request.put(`https://reqres.in/api/users/${userId}`, {
+  35 |         data: {
+  36 |             "Content-Type": 'application/json',
+  37 |             "name": "morpheus",
+  38 |             "job": "zion resident"
+  39 |         }
+  40 |     });
+  41 |
+  42 |     const putData = await putResponse.json()
+  43 |
+  44 |     // expect(putData.name).toBe('morpheus')
+  45 |     //expect(putData.job).toBe('zion resident')
+> 46 |     expect(putResponse.status()).toBe(200)
+     |                                  ^ Error: expect(received).toBe(expected) // Object.is equality
+  47 |
+  48 | })
+  49 | test('DELETE request', async ({ request }) => {
+  50 |
+  51 | })
+```
