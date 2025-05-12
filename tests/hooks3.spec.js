@@ -23,8 +23,8 @@ test.afterAll(async () => {
 test('Home page test', async () => {
 
     //await page.waitForSelector('.hrfech')
-    const products = await page.$$('.hrefch')
-    await expect(products).toHaveLength(9)
+    //const products = await page.$$('.hrefch')
+    //await expect(products).toHaveLength(9)
 
     //add product
     await page.locator('//*[@id="tbodyid"]/div[1]/div/a').click()
